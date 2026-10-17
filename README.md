@@ -14,9 +14,13 @@ Originally an experiment to recreate the fireworks screensaver on an LG OLED TV,
 
 ## Videos
 
-[Fireworks Demo](Screenshots/Screen_Recording_20261017_115422_Acode.mp4)
+### Fireworks Demo
 
-[Particle Demo](Screenshots/Screen_Recording_20261017_115522_Acode.mp4)
+https://github.com/user-attachments/assets/9f754cf0-30b1-42eb-acde-47c7b00ce2cd
+
+### Particle Demo
+
+https://github.com/user-attachments/assets/da80877b-e57a-473f-b2c0-0456bd27c8f6
 
 ## Built With
 
