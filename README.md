@@ -26,7 +26,8 @@ https://github.com/user-attachments/assets/da80877b-e57a-473f-b2c0-0456bd27c8f6
 
 - Vanilla JavaScript
 - HTML5 Canvas 2D
-- No frameworks or dependencies
+- Tweakpane (Planned)
+- No frameworks
 
 ## License
 
