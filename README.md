@@ -2,7 +2,7 @@
 
 A simple particle playground built with vanilla JavaScript and Canvas 2D.
 
-Originally an experiment to recreate the fireworks screensaver on an LG OLED TV, it has since evolved into a 3D particle simulator featuring interactive fireworks and a strange attractor.
+Originally an experiment to recreate the fireworks screensaver on an LG OLED TV, it has since evolved into a 3D particle simulator featuring interactive fireworks and a *strange* attractor.
 
 ## Screenshots
 
