@@ -1,10 +1,16 @@
+import {Pane} from 'https://cdn.jsdelivr.net/npm/tweakpane@4.0.5/dist/tweakpane.min.js';
+
 import {canvas, resizeCanvas, clear, clearAccumulate, SKIES} from "./canvas.js"
 import {startLoop} from "./loop.js"
 import {drawRing, drawLgOledFirework, drawFirework, drawLorenzAttractor, particles, drawParticle, updateParticle} from "./particles.js"
-import * as camera from "./camera.js"
+
+import * as Camera from "./camera.js"
+import * as Utils from "./utilities.js"
 
 function main()
 {
+  let angle = 0;
+  
   resizeCanvas();
 
   //clear(); // TEMP LORENZ TESTING
@@ -26,7 +32,7 @@ function main()
 
     // 3D TAPS
     const z = 500;
-    const {wx, wy} = camera.unproject(sx, sy, z)
+    const {wx, wy} = Camera.unproject(sx, sy, z)
     
     //drawLgOledFirework(x, y);
     //drawFirework(wx, wy, z);
@@ -36,17 +42,43 @@ function main()
   // LOGGING
   const debug = document.getElementById("debug");
 
+  // TWEAK PANE 
+  const pane = new Pane({container: document.getElementById("controls")});
+  pane.addBinding(Camera.position, 'x',{
+    view: 'slider',
+    label: 'Camera X',
+    min: -500,
+    max: 500,
+    value: Camera.position.x,
+  });
+  pane.addBinding(Camera.position, 'y',{
+    view: 'slider',
+    label: 'Camera Y',
+    min: -500,
+    max: 500,
+    value: Camera.position.y,
+  });
+  pane.addBinding(Camera.position, 'z',{
+    view: 'slider',
+    label: 'Camera Z',
+    min: -500,
+    max: 500,
+    value: Camera.position.z,
+  });
   
   startLoop(function(fps, frameTime, deltaTime)
   {
+    // Camera ROTATE
+    //angle += deltaTime;
+    //Camera.position.x = Math.cos(angle) * 100;
 
-  //clear(); // DISABLE FOR MAGICAL FIREWORKS, ENABLE FOR LG OLED FIREWORKS 
-  clearAccumulate(SKIES.pitch_black, .08); // CONTAINED MAGIC
-    
-  updateParticle(particles, deltaTime);
-  drawParticle(particles);
-    
-  debug.textContent = 
+    //clear(); // DISABLE FOR MAGICAL FIREWORKS, ENABLE FOR LG OLED FIREWORKS 
+    clearAccumulate(SKIES.pitch_black, .08); // CONTAINED MAGIC
+      
+    updateParticle(particles, deltaTime);
+    drawParticle(particles);
+      
+    debug.textContent = 
     `
     FPS:${fps.toFixed(1)}
     Frametime:${frameTime.toFixed(2)}

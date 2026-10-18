@@ -1,4 +1,5 @@
 import {canvas, cx, cy, drawPixel} from "./canvas.js";
+import {degToRad} from "./utilities.js"
 import * as camera from "./camera.js"
 
 // STATE -> UPDATE -> DRAW
@@ -6,7 +7,6 @@ import * as camera from "./camera.js"
 
 // RANDOM IN RANGE | Math.random() * (max - min) + min
 
-const degToRad = deg => deg * Math.PI / 180;
 const GRAVITY = 100;
 
 export const particles = [];
@@ -18,8 +18,8 @@ export function drawRing()
     particles.push({
       x: cx,
       y: cx,
-      vx: Math.cos(degToRad(i)) * 500,
-      vy: Math.sin(degToRad(i)) * 500,
+      vx: Math.cos(utilities.degToRad(i)) * 500,
+      vy: Math.sin(utilities.degToRad(i)) * 500,
       size: 1,
       color: `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`
     });
@@ -36,8 +36,8 @@ export function drawLgOledFirework(x, y)
     particles.push({
       x: x,
       y: y,
-      vx: Math.cos(degToRad(angle)) * speed,
-      vy: Math.sin(degToRad(angle)) * speed,
+      vx: Math.cos(utilities.degToRad(angle)) * speed,
+      vy: Math.sin(utilities.degToRad(angle)) * speed,
       size: 1,
       color: `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`,
       gravity: false,
@@ -88,9 +88,9 @@ export function drawFirework(x, y, z)
       x: x,
       y: y,
       z: z,
-      vx: speed * Math.sin(polar_angle) * Math.cos(azimuth),//Math.cos(degToRad(angle)) * speed,
+      vx: speed * Math.sin(polar_angle) * Math.cos(azimuth),//Math.cos(utilities.degToRad(angle)) * speed,
       vy: speed * Math.cos(polar_angle),//Math.sin(degToRad(angle)) * speed,
-      vz: speed * Math.sin(polar_angle) * Math.sin(azimuth),//Math.sin(degToRad(angle)) * speed,
+      vz: speed * Math.sin(polar_angle) * Math.sin(azimuth),//Math.sin(utilities.degToRad(angle)) * speed,
       size: 1,
       /*color: `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`,*/
       color: color,
